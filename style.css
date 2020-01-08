@@ -1,0 +1,55 @@
+body {
+    padding: 20px;
+    font-family: monospace;
+    color: black;
+    background: white;
+}
+
+a {
+    color: black;
+}
+
+#logo {
+    color: gray;
+    width: 70ch;
+    text-align: center;
+}
+
+#nav a {
+    padding: 0 20px 0 0;
+    font-size: large;
+}
+
+
+.text {
+    max-width: 70ch;
+    text-align: justify;    
+}
+
+.text .title {
+    font-size: large;
+    font-weight: bold;
+}
+
+.text .timestamp {
+    padding: 10px 0 10px 0;
+    font-size: small;
+    font-style: italic;
+}
+
+.quote {
+    max-width: 70ch;
+}
+
+.quote .say {
+    text-align: justify;
+}
+
+.quote .say .actor {
+    font-weight: bold;
+}
+
+.quote .by {
+    text-align: right;
+    font-style: italic;    
+}
