@@ -1,0 +1,49 @@
+<html>
+  <meta charset="utf-8"></meta>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <title>C REPL</title>
+  </head>
+  <body>
+    <script type="text/javascript" src="top.js"></script>
+
+    <div class="text">
+      <p class="title">C REPL</p>
+
+      <p>
+	This note is about how to setup C read print evaluate loop (REPL)
+	by using Emacs, GDB and Make.
+      </p>
+
+      <p>Refer to this for <a href="note-c-repl-dotemacs">the relevant setup</a> in Emacs
+	and <a href="note-c-repl-makefile">a typical Makefile</a></p>
+
+      <br><p>Steps to setup:</p>
+      <ol>
+	<li>
+	  Open the top level source file in Emacs (let's called it main.c and
+	  should have a main function)
+	</li>
+	<li>Run M-x gud-gdb</li>
+	<li>When prompted enter: gud out</li>
+	<li>GDB should started in a buffer named *gud-out*</li>
+	<li>In the main.c buffer run C-c C-c to make; check the output in GDB buffer</li>
+	<li>If it asks you to use the "file" command then in the GDB prompt enter: file out</li>
+	<li>In the main.c buffer run C-c C-c to make again; check the output in GDB buffer</li>
+      </ol>
+
+      <br><p>Now the REPL is ready:</p>
+      <ul>
+	<li>You can compile the changes to the source codes by running C-c C-c in the main.c buffer</li>
+	<li>then you can evaluate code (function call) in main.c buffer and print result to the GDB buffer by using inline comment and run C-&ltreturn&gt while the cursor is on that line; for examples:
+	  <br>// 8 + 8
+	  <br>// size(int)
+	  <br>// sq(8)
+	</li>
+      </ul>
+      
+      <p>Refer to this for <a href="note-c-repl-main-c">sample main.c</a></p>
+      
+    </div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define PI 3.14
+
+int main(int argc, char* argv[argc+1]) {
+  return EXIT_SUCCESS;
+}
+
+int sq(int n) {
+  return n * n; 
+}
+
+float ping (int n) {
+  return PI * n;
+}
+
+
+// 8 + 8
+// size(int)
+// sq(8)
+// ping(4) + sq(8)

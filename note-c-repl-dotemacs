@@ -1,0 +1,22 @@
+(defun gdb-repl-make()
+  (interactive)
+  (process-send-string "*gud-out*" "kill inferiors 1\n")
+  (process-send-string "*gud-out*" "make\n")
+  (process-send-string "*gud-out*" "clear\n")
+  (process-send-string "*gud-out*" "break main\n")
+  (process-send-string "*gud-out*" "run\n"))
+
+(defun gdb-repl-clean()
+  (interactive)
+  (process-send-string "*gud-out*" "make clean\n"))
+
+(defun gdb-repl-send()
+  (interactive)
+  (process-send-string "*gud-out*"
+		       (replace-regexp-in-string "// "
+		       				 "p "
+						 (thing-at-point 'line t))))
+
+(define-key c-mode-map (kbd "C-c C-c") 'gdb-repl-make)
+(define-key c-mode-map (kbd "C-c C-k") 'gdb-repl-clean)
+(define-key c-mode-map (kbd "C-<return>") 'gdb-repl-send)

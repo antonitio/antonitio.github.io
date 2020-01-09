@@ -1,0 +1,25 @@
+OUT = out
+SRC = $(wildcard *.c)
+OBJ = $(SRC:.c=.o)
+DEP = $(OBJ:.o=.d)
+
+CC = cc
+CFLAGS = -g -Wall -pedantic -ansi -std=c99
+LDFLAGS = -lm
+
+$(OUT): $(OBJ)
+	$(CC) $(LDFLAGS) -o $@ $^
+
+-include $(DEP)
+
+%.d: %.c
+	$(CC) $(CFLAGS) $< -MM -MT $(@:.d=.o) > $@
+
+.PHONY: clean
+clean:
+	rm -f $(OUT) $(OBJ)
+
+.PHONY: cleandep
+cleandep:
+	rm -f $(DEP)
+
